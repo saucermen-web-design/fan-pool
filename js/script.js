@@ -1,5 +1,9 @@
 // *FILE LINK TEST*
-    alert('Reportin for duty');
+    // alert('Reportin for duty');
+
+// IIFE - Immediately Invoked Function Expression (protects global scope)
+    $(function() {
+
 
 // *--- CONSTANTS ---*
 
@@ -23,21 +27,29 @@ $('form').on('submit', handleGetData);
 
 // *--- FUNCTIONS ---*
 
+    function init() {
+
+    };
+
     function handleGetData(e) {
         e.preventDefault();
         userInput = $input.val();
-        $.ajax({
-            url:`https://api.discogs.com/database/search?q=${$artist}&token=${token}`
-        })
+        $.ajax(`https://api.discogs.com/database/search?q=${$artist}&token=${token}`)
         .then(
             (data) => {
-            $artist.text(data.name);
-            $releaseTitle.text(data.main.temp);
-            $thumbImg.text(data.main.feels_like);
-            $releaseLink.text(data.weather.main);
+            $artist.text('Artist: ' + data.results.id);
+            // $releaseTitle.text('Album Title: ' + data.main.temp);
+            // $thumbImg.text('Cover: ' + data.main.feels_like);
+            // $releaseLink.text('Link to release: ' + data.weather.main);
             },
             (error) => {
             console.log('bad request: ', error);
             alert('No such artist')
-            });
+        });
     };
+
+    function render() {
+
+    };
+
+});
