@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* outline class for visualization of sections*/
+.outline {
+    border: 1px dotted red;
+}
