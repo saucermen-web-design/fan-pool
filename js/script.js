@@ -8,7 +8,6 @@
 // *--- CONSTANTS ---*
 
 var $pagination = $('#pagination'),
-totalRecords = 0,  // totalt records fetched from DB
 records = [], // total of records object array
 displayRecords = [], // object array that is pushed to HTML table
 recPerPage = 25, // Count of records displayed per page
@@ -42,47 +41,38 @@ $('form').on('submit', handleGetData);
         e.preventDefault();
         userInput = $input.val();
         $.ajax({
-            url:`https://api.discogs.com/database/search?q=${$input}&token=${token}`
+            url:`https://api.discogs.com/database/search?q=${userInput}&token=${token}`
         })
         .then(
             (data) => {
-            // $artist.text('Artist: ' + data.results.id);
-            // $releaseTitle.text('Album Title: ' + data.results.title);
-            // $thumbImg.text('Cover: ' + data.results.thumb);
-            // $releaseLink.text('Link to release: ' + data.results.uri);
             artistRlsData = data;
             console.log(artistRlsData);
-            totalRecords = artistRlsData.items;
+            console.log(data);
+            console.log(artistRlsData.pagination.items);
+            totalRecords = artistRlsData.pagination.length;
             totalPages = Math.ceil(totalRecords / recPerPage);
             apply_pagination();
             },
             (error) => {
             console.log('bad request: ', error);
-            alert('No such artist')
         });
     };
-
-    // function render() {
-    //     $artist.text(artistRlsData.results.id);
-    //     $releaseTitle.text(artistRlsData.results.title);
-    //     $thumbImg.text(artistRlsData.results.title);   
-    //     $releaseLink.text(artistRlsData.results.uri);   
-    // };
-    // render();
     
         // *--- POPULATES TABLE WITH RESULTS ---*
     function generateTable() {
         let tr;
         $('#renderedDataBody').html('');
-        for(let i = 0; i <artistRlsData.length; i++){
+        for(let i = 0; i <displayRecords.length; i++){
+            console.log(displayRecords.length);
             tr = $('<tr/>');
-            tr.append(`<td>${artistRlsData[i].results.id}</td>`)
-            tr.append(`<td>${artistRlsData[i].results.title}</td>`)
-            tr.append(`<td>${artistRlsData[i].results.title}</td>`)
-            tr.append(`<td>${artistRlsData[i].results.uri}</td>`)
+            tr.append(`<td>${ displayRecords[i].results.id}</td>`)
+            tr.append(`<td>${ displayRecords[i].results.title}</td>`)
+            tr.append(`<td>${ displayRecords[i].results.title}</td>`)
+            tr.append(`<td>${ displayRecords[i].results.uri}</td>`)
             $('#renderedDataBody').append(tr);
         }
-    }
+    };
+
         // *--- SETS PAGINATION PARAMETERS AND PASSES THEM TO PLUG-IN ---*
     function apply_pagination() {
         $pagination.twbsPagination({
@@ -91,11 +81,11 @@ $('form').on('submit', handleGetData);
             onPageClick: function(event, page) {
                 artistRlsDataIndex = Math.max(page -1, 0) * recPerPage;
                 endRec = (artistRlsDataIndex) + recPerPage;
-                artistRlsData = records.slice(artistRlsDataIndex. endRec);
+                displayRecords = artistRlsData.slice(artistRlsDataIndex. endRec);
                 generateTable();
             }
         })
-    }
+    };
 
 });
 
