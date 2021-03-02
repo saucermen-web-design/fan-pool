@@ -34,6 +34,7 @@
     </script>
         <!-- jQuery pagination plugin -->
     <script 
+        defer
         src="./twbs-pagination-master/jquery.twbsPagination.min.js">
     </script>
     </script>
@@ -53,14 +54,24 @@
         </header>
 
         <main>
-            <h4>Artist:</h4>
-            <p id="artist"></p>
-            <h4>Title:</h4>
-            <p id="releaseTitle"></p>
-            <img id="thumbImg" src="">
-            <h4>Discogs page link:</h4>
-            <p id="releaseLink"></p>
-            <section class="userInputBox">
+            <section id="dataDisplay">
+                <table class="table table-bordered table-hover" id="renderedData">
+                    <thead>
+                        <th id="artist">Artist</th>
+                        <th id="releaseTitle">Title</th>
+                        <th id="thumbImg">Cover</th>
+                        <th id="releaseLink">Marketplace Link</th>
+                    </thead>
+                </table>
+            </section>
+
+            <section id="paginationButtons">
+                <ul id="pagination" class="pagination-sm">
+
+                </ul>
+            </section>
+
+            <section id="userInputBox">
                 <form>
                     <label>
                         Enter Band/Artist:
@@ -69,10 +80,8 @@
                     <button type="submit" value="submit" class="btn btn-primary inputs" id="getBandBtn">Get Band/Artist</button>
                 </form>
             </section>
-        </main>
-        <ul id="pagination-demo" class="pagination-sm">
 
-        </ul>
+        </main>
 
         <footer>
             Copyright &copy; All rights reserved 2021 FanPull 

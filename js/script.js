@@ -35,14 +35,14 @@ $('form').on('submit', handleGetData);
         e.preventDefault();
         userInput = $input.val();
         $.ajax({
-            url:`https://api.discogs.com/database/search?q=${$input.val}&token=${token}`
+            url:`https://api.discogs.com/database/search?q=${$input}&token=${token}`
         })
         .then(
             (data) => {
             $artist.text('Artist: ' + data.results.id);
             $releaseTitle.text('Album Title: ' + data.results.title);
             $thumbImg.text('Cover: ' + data.results.thumb);
-            // $releaseLink.text('Link to release: ' + data.);
+            $releaseLink.text('Link to release: ' + data.results.uri);
             },
             (error) => {
             console.log('bad request: ', error);
