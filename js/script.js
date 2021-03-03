@@ -2,7 +2,7 @@
     // alert('Reportin for duty');
 
 // IIFE - Immediately Invoked Function Expression (protects global scope)
-    // $(function() {
+    $(function() {
 
 
 // *--- CONSTANTS ---*
@@ -17,39 +17,39 @@ const token = 'GmScquIpMgYfKWDslkeqkFtIcLJhzXHURtxForyC'; // API KEY
 
 // *--- APP'S STATE (VARIABLES) ---*
 
-let $input = $('input[type="text"]'),
-artistRlsData, 
-userInput;
+let $input = $('input[type="text"]'), //user input field variable
+artistRlsData, // "artist release data" - data received from AJAX request
+userInput; //
 
 // *--- CACHED ELEMENT REFERENCES(HTML DOM) ---*
 
-const $artist = $('#artist');
-const $thumbImg = $('#thumbImg');
-const $releaseTitle = $('#releaseTitle');
-const $releaseLink = $('#releaseLink');
+const $artist = $('#artist');  // Artist name column DOM element
+const $thumbImg = $('#thumbImg');  // Album cover photo column DOM element
+const $releaseTitle = $('#releaseTitle');  // Album title column DOM element
+const $releaseLink = $('#releaseLink');  // Marketplace link column DOM element
 
 // *--- EVENT LISTENERS ---*
 
-$('form').on('submit', handleGetData);
+$('form').on('submit', handleGetData); // Listens for form submission
 
 // *--- FUNCTIONS ---*
 
         // *--- TAKES USER INPUT, HANDLES CLICK, HANDLES PAGINATION OF RESULTS ---*
     function handleGetData(e) {
-        e.preventDefault();
-        userInput = $input.val();
+        e.preventDefault();  // prevents page refresh caused by form submission
+        userInput = $input.val(); // assigns input field value to userInput variable
         $.ajax({
             url:`https://api.discogs.com/database/search?q=${userInput}&token=${token}`
-        })
+        }) //AJAX request
         .then(
             (data) => {
-            artistRlsData = data;
-            console.log(artistRlsData);
-            console.log(data);
-            console.log(artistRlsData.pagination.items);
-            totalRecords = artistRlsData.pagination.length;
-            totalPages = Math.ceil(totalRecords / recPerPage);
-            apply_pagination();
+            artistRlsData = data; // Assigns received data to variable
+            // console.log(artistRlsData); 
+            // console.log(data);
+            // console.log(artistRlsData.pagination.items);
+            totalRecords = artistRlsData.pagination.length;  // Assigns number of results to variable
+            totalPages = Math.ceil(totalRecords / recPerPage);  // Divides number of results variable by number of items per page variable which is set statically.
+            apply_pagination(); // Runs function that paginates data
             },
             (error) => {
             console.log('bad request: ', error);
@@ -58,34 +58,35 @@ $('form').on('submit', handleGetData);
     
         // *--- POPULATES TABLE WITH RESULTS ---*
     function generateTable() {
-        let tr;
-        $('#renderedDataBody').html('');
-        for(let i = 0; i < displayRecords.length; i++){
+        let tr;  // Defines table tow variable
+        $('#renderedDataBody').html(''); // sets content of table body
+        for(let i = 0; i < displayRecords.length; i++){  // loops through data and appends to table
             console.log(displayRecords.length);
             tr = $('<tr/>');
-            tr.append(`<td>${displayRecords[i].results.id}</td>`)
-            tr.append(`<td>${displayRecords[i].results.title}</td>`)
-            tr.append(`<td>${displayRecords[i].results.title}</td>`)
-            tr.append(`<td>${displayRecords[i].results.uri}</td>`)
+            tr.append(`<td>${displayRecords[i].id}</td>`)
+            tr.append(`<td>${displayRecords[i].title}</td>`)
+            tr.append(`<td>${displayRecords[i].title}</td>`)
+            tr.append(`<td>${displayRecords[i].uri}</td>`)
             $('#renderedDataBody').append(tr);
         }
     };
 
         // *--- SETS PAGINATION PARAMETERS AND PASSES THEM TO PLUG-IN ---*
     function apply_pagination() {
-        $pagination.twbsPagination({
-            totalPages: 10,
-            visiblePages: 5,
-            onPageClick: function(event, page) {
-                artistRlsDataIndex = Math.max(page -1, 0) * recPerPage;
+        $pagination.twbsPagination({ // Calls plugin
+            totalPages: 10, // Sets total number of available pages
+            visiblePages: 5,  // Sets how many pages displayed at a time
+            onPageClick: function(event, page) {  
+                artistRlsDataIndex = Math.max(page -1, 0) * recPerPage;  // 
                 endRec = (artistRlsDataIndex) + recPerPage;
-                displayRecords = $(artistRlsData).slice(artistRlsDataIndex, endRec);
+                displayRecords = artistRlsData.results.slice(artistRlsDataIndex, endRec);  // Assigns 
+                console.log(artistRlsDataIndex);
                 generateTable();
             }
         })
     };
 
-// });
+});
 
 
 

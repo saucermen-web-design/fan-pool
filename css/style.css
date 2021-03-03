@@ -19,7 +19,7 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
-    color: burlywood;
+    color: slategray;
 }
 
 #artist {
@@ -35,14 +35,16 @@ body {
 }
 
 #releaseLink {
-    background-color: yellow;
-}
-
-h1 {
-    background-color: purple;
+    background-color: indigo;
 }
 
 header {
     text-align: center;
     font-family: 'Oi', cursive;
+    background-color:darkslateblue;
+    ;
+}
+
+#appTitle {
+    background-color: violet;
 }
