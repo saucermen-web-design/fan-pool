@@ -2,7 +2,7 @@
     // alert('Reportin for duty');
 
 // IIFE - Immediately Invoked Function Expression (protects global scope)
-    $(function() {
+    // $(function() {
 
 
 // *--- CONSTANTS ---*
@@ -17,8 +17,9 @@ const token = 'GmScquIpMgYfKWDslkeqkFtIcLJhzXHURtxForyC'; // API KEY
 
 // *--- APP'S STATE (VARIABLES) ---*
 
-let $input = $('input[type="text"]');
-let artistRlsData, userInput;
+let $input = $('input[type="text"]'),
+artistRlsData, 
+userInput;
 
 // *--- CACHED ELEMENT REFERENCES(HTML DOM) ---*
 
@@ -33,9 +34,6 @@ $('form').on('submit', handleGetData);
 
 // *--- FUNCTIONS ---*
 
-    function init() {
-
-    };
         // *--- TAKES USER INPUT, HANDLES CLICK, HANDLES PAGINATION OF RESULTS ---*
     function handleGetData(e) {
         e.preventDefault();
@@ -62,13 +60,13 @@ $('form').on('submit', handleGetData);
     function generateTable() {
         let tr;
         $('#renderedDataBody').html('');
-        for(let i = 0; i <displayRecords.length; i++){
+        for(let i = 0; i < displayRecords.length; i++){
             console.log(displayRecords.length);
             tr = $('<tr/>');
-            tr.append(`<td>${ displayRecords[i].results.id}</td>`)
-            tr.append(`<td>${ displayRecords[i].results.title}</td>`)
-            tr.append(`<td>${ displayRecords[i].results.title}</td>`)
-            tr.append(`<td>${ displayRecords[i].results.uri}</td>`)
+            tr.append(`<td>${displayRecords[i].results.id}</td>`)
+            tr.append(`<td>${displayRecords[i].results.title}</td>`)
+            tr.append(`<td>${displayRecords[i].results.title}</td>`)
+            tr.append(`<td>${displayRecords[i].results.uri}</td>`)
             $('#renderedDataBody').append(tr);
         }
     };
@@ -76,18 +74,18 @@ $('form').on('submit', handleGetData);
         // *--- SETS PAGINATION PARAMETERS AND PASSES THEM TO PLUG-IN ---*
     function apply_pagination() {
         $pagination.twbsPagination({
-            totalPages: totalPages,
+            totalPages: 10,
             visiblePages: 5,
             onPageClick: function(event, page) {
                 artistRlsDataIndex = Math.max(page -1, 0) * recPerPage;
                 endRec = (artistRlsDataIndex) + recPerPage;
-                displayRecords = artistRlsData.slice(artistRlsDataIndex. endRec);
+                displayRecords = $(artistRlsData).slice(artistRlsDataIndex, endRec);
                 generateTable();
             }
         })
     };
 
-});
+// });
 
 
 
