@@ -1,3 +1,8 @@
+        /* IMPORTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+
+        /* GLOBAL */
 *,
 *::before,
 *::after {
@@ -6,12 +11,38 @@
 	box-sizing: border-box;
 }
 
+        /* ELEMENTS */
 body {
+    background-image: url('../assets/nils-schirmer-V0_gHwsrCg4-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
+    color: burlywood;
 }
 
-/* outline class for visualization of sections*/
-.outline {
-    border: 1px dotted red;
+#artist {
+    background-color: red;
+}
+
+#releaseTitle {
+    background-color: green;
+}
+
+#thumbImg {
+    background-color: blue;
+}
+
+#releaseLink {
+    background-color: yellow;
+}
+
+h1 {
+    background-color: purple;
+}
+
+header {
+    text-align: center;
+    font-family: 'Oi', cursive;
 }

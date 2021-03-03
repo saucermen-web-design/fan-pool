@@ -1,5 +1,6 @@
-# FanPull
+# FanPool
 ### Band release tracker
+##### Dive in to your favorite artists
 
 ## Technologies/API used:
  * JS/jQuery
