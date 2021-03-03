@@ -1,4 +1,5 @@
-# Band Release Tracker
+# FanPull
+### Band release tracker
 
 ## Technologies/API used:
  * JS/jQuery
