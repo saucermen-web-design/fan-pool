@@ -1,6 +1,18 @@
         /* IMPORTS */
 
 @import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Cherry+Cream+Soda&family=Fontdiner+Swanky&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Slackey&family=Spicy+Rice&display=swap');
+
+        /* FONT FAMILY RULES */
+    /* font-family: 'Barrio', cursive; */
+    /* font-family: 'Cherry Cream Soda', cursive; */
+    /* font-family: 'Fontdiner Swanky', cursive; */
+    /* font-family: 'Limelight', cursive; */
+    /* font-family: 'Montserrat Subrayada', sans-serif; */
+    /* font-family: 'Slackey', cursive; */
+    /* font-family: 'Spicy Rice', cursive; */
+
+
 
         /* GLOBAL */
 *,
@@ -20,18 +32,19 @@ body {
     min-height: 100vh;
     display: flex;
     color: slategray;
+    font-family: 'Fontdiner Swanky', cursive;
 }
 
 #artist {
-    background-color: red;
+    background-color: indigo;
 }
 
 #releaseTitle {
-    background-color: green;
+    background-color: indigo;
 }
 
 #thumbImg {
-    background-color: blue;
+    background-color: indigo;
 }
 
 #releaseLink {
@@ -40,11 +53,21 @@ body {
 
 header {
     text-align: center;
-    font-family: 'Oi', cursive;
+    font-family: 'Barrio', cursive;
     background-color:darkslateblue;
     ;
 }
 
 #appTitle {
-    background-color: violet;
+    background-color: indigo;
+}
+
+footer {
+    display: flex;
+    align-content: flex-end;
+    justify-content: center;
+}
+
+#userInputBox {
+    justify-content: flex-end;
 }
