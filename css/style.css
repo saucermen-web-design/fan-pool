@@ -35,31 +35,27 @@ body {
     font-family: 'Fontdiner Swanky', cursive;
 }
 
-#artist {
-    background-color: indigo;
-}
-
-#releaseTitle {
-    background-color: indigo;
-}
-
-#thumbImg {
-    background-color: indigo;
-}
-
-#releaseLink {
+#artist, #releaseLink, #releaseTitle, #thumbImg {
     background-color: indigo;
 }
 
 header {
-    text-align: center;
     font-family: 'Barrio', cursive;
-    background-color:darkslateblue;
-    ;
+    background-color:#004D4D;
+    text-shadow: 1px 0 10px #597874;
+}
+
+header > p {
+    display: flex;
+    justify-content: center;
 }
 
 #appTitle {
-    background-color: indigo;
+    text-align: center;
+    background-color: #400080;
+    color: #808000;
+    font-size: 65px;
+    text-shadow: 1px 0px 10px #4D4D00;
 }
 
 footer {
@@ -70,4 +66,22 @@ footer {
 
 #userInputBox {
     justify-content: flex-end;
+}
+
+#rightSidebar {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    background-color: #800040;
+    width: 200px;
+    height: 100vh;
+}
+
+#leftSidebar {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #800040;
+    height: 100vh;
+    width: 200px;
+    text-shadow: 1px 0px 10px ;
 }

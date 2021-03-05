@@ -77,7 +77,7 @@ $('form').on('submit', handleGetData); // Listens for form submission
             totalPages: 10, // Sets total number of available pages
             visiblePages: 5,  // Sets how many pages displayed at a time
             onPageClick: function(event, page) {  
-                artistRlsDataIndex = Math.max(page -1, 0) * recPerPage;  // 
+                artistRlsDataIndex = Math.max(page - 1, 0) * recPerPage;  // 
                 endRec = (artistRlsDataIndex) + recPerPage;
                 displayRecords = artistRlsData.results.slice(artistRlsDataIndex, endRec);  // Assigns 
                 console.log(artistRlsDataIndex);

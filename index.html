@@ -45,19 +45,29 @@
         src="./js/script.js">
     </script>
     <title>
-        Document
+        FanPool
     </title>
+        <!-- Favicon -->
+    <link 
+        rel = "icon" 
+        href = "./assets/music-solid.svg" 
+        type = "svg"
+    > 
 </head>
-<body>
-    <div class="container">
+<body> 
             <!-- APP TITLE/TECHNOLOGIES -->
+
+    <div class="container">
         <header>
             <h1 class="jumbotron" id="appTitle">FanPool</h1>
             <p>Dive in to your favorite artists</p>
         </header>
+
             <!-- USER INPUT/DATA/MAIN-CONTENT -->
+
         <main>
-                <!-- DISPLAYED DATA TABLE -->
+            <!-- DISPLAYED DATA TABLE -->
+
             <section id="dataDisplay">
                 <table class="table table-bordered table-hover" id="renderedData">
                     <colgroup><col><col><col></colgroup>
@@ -74,7 +84,9 @@
                     </tbody>
                 </table>
             </section>
+
                 <!-- PAGING BUTTONS -->
+
             <div id="pager">
                 <ul id="pagination" class="pagination-sm">
 
@@ -92,10 +104,34 @@
             </section>
 
         </main>
+
+                <!-- SIDEBARS -->
+
+        <aside id='rightSidebar'>
+            <div id="welcomeText">
+                <h2>
+                    Welcome to FanPool
+                </h2>
+                <p>
+                    FanPool allows you to search for your favorite artist's releases from a regularly updated database of album releases.
+                </p>
+            </div>
+        </aside>
+
+        <aside id="leftSidebar">
+            <h3>
+                RSS music news feed coming soon... 
+            </h3>
+        </aside>
+
             <!-- FINE PRINT -->
+
         <footer>
             Copyright &copy; All rights reserved 2021 FanPull 
         </footer>
+        
     </div>
+
 </body>
+
 </html>
