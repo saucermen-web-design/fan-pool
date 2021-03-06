@@ -18,9 +18,14 @@
 
 ## User Stories:
     Want:
-        * as a user I would like to be able to keep up to date on all the releases of my favorite artists.  This includes what they have released, pricing, and availability.
+        * As a user I would like to be able to keep up to date on all the releases of my favorite artists.  This includes what they have released, pricing, and availability.
         * As a user I would like this data to update real-time
-        * as a user I would like to be able to generate a report of the band's release stats
+        * As a user I would like to be able to generate a report of the band's release stats
+
+    Have:
+        * As a user I can search for a band, or artist of my choosing and browse a list of their releases
+        * As a user I can view an image of the album cover
+        * As a user I have access to a link that takes me to the Discogs.com Marketplace profile for the album
 
 ## Stretch Goals/Future Goal:
     * Lists count of available listings for individual release
