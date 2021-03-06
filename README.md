@@ -27,3 +27,4 @@
     * List average pricing of individual release
     * Add user login and store data to their account
     * Add ability to export/embed data in site for cases like fan pages
+    * RSS Feed for music news

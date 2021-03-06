@@ -1,5 +1,7 @@
 // *FILE LINK TEST*
     // alert('Reportin for duty');
+// THANKS TO jsTutorials Team FOR PAGINATION TUTORIAL : https://www.js-tutorials.com/jquery-tutorials/simple-example-pagination-using-jquery-bootstrap/
+
 
 // IIFE - Immediately Invoked Function Expression (protects global scope)
     $(function() {

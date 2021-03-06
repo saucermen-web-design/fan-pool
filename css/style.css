@@ -109,3 +109,8 @@ footer {
 #getBandBtn {
     color: #90282C; 
 }
+
+#rssFeed {
+    width: 200px;
+    height: 250px;
+}
