@@ -102,7 +102,7 @@ footer {
     margin-right: 0%;
 }
 
-#userInputBox {
+#userInputBox, li {
     font-family: 'Spicy Rice', cursive;
 }
 

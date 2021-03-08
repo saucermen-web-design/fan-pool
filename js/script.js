@@ -9,7 +9,7 @@ $(function() {
     
         var $pagination = $('#pagination'),
         displayRecords = [], // object array that is pushed to HTML table
-        recPerPage = 25, // Count of records displayed per page
+        recPerPage = 10, // Count of records displayed per page
         page = 1, // current page number
         totalPages = 0; // total pages made from fetched records
         const token = 'GmScquIpMgYfKWDslkeqkFtIcLJhzXHURtxForyC'; // API KEY
