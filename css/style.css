@@ -1,116 +1,116 @@
         /* IMPORTS */
 
-@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Cherry+Cream+Soda&family=Fontdiner+Swanky&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Slackey&family=Spicy+Rice&display=swap');
-
-        /* FONT FAMILY RULES */
-    /* font-family: 'Barrio', cursive; */
-    /* font-family: 'Cherry Cream Soda', cursive; */
-    /* font-family: 'Fontdiner Swanky', cursive; */
-    /* font-family: 'Limelight', cursive; */
-    /* font-family: 'Montserrat Subrayada', sans-serif; */
-    /* font-family: 'Slackey', cursive; */
-    /* font-family: 'Spicy Rice', cursive; */
-
-
-
-        /* GLOBAL */
-*,
-*::before,
-*::after {
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-}
-
-        /* ELEMENTS */
-body {
-    background-image: url('../assets/nils-schirmer-V0_gHwsrCg4-unsplash.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    color: whitesmoke;
-    font-family: 'Fontdiner Swanky', cursive;
-    min-height: 100vh;
-}
-
-#artist, #releaseLink, #releaseTitle, #thumbImg {
-    background-color: indigo;
-    text-align: center;
-}
-
-header {
-    font-family: 'Barrio', cursive;
-    background-color:#004D4D;
-    text-shadow: 1px 0 10px #597874;
-    border-radius: 25%;
-}
-
-header p {
-    display: flex;
-    justify-content: center;
-}
-
-#appTitle {
-    border-top-left-radius: 45%;
-    border-top-right-radius: 2%;
-    border-bottom-right-radius: 25%;
-    text-align: center;
-    background-color: #400080;
-    color: #808000;
-    font-size: 65px;
-    text-shadow: 1px 0px 10px #4D4D00;
-    height: 125px;
-}
-
-footer {
-    display: flex;
-    align-content: flex-end;
-    justify-content: center;
-    color: #008000;
-    height: 50px;
-    background-color: 
-}
-
-#userInputBox {
-    justify-content: flex-end;
-}
-
-#rightSidebar {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    background-color: #800040;
-    width: 200px;
-    height: 100vh;
-    text-shadow: 1px 0 10px #597874;
-}
-
-#rightSidebar p {
-    font-family: 'Spicy Rice', cursive;
-}
-
-#leftSidebar {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    background-color: #800040;
-    height: 100vh;
-    width: 200px;
-    text-shadow: 1px 0px 10px #597874;
-    margin-right: 0%;
-}
-
-#userInputBox {
-    font-family: 'Spicy Rice', cursive;
-}
-
-#getBandBtn {
-    color: #90282C; 
-}
-
-#rssFeed {
-    width: 200px;
-    height: 250px;
-}
+        @import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barrio&family=Cherry+Cream+Soda&family=Fontdiner+Swanky&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Slackey&family=Spicy+Rice&display=swap');
+        
+                /* FONT FAMILY RULES */
+            /* font-family: 'Barrio', cursive; */
+            /* font-family: 'Cherry Cream Soda', cursive; */
+            /* font-family: 'Fontdiner Swanky', cursive; */
+            /* font-family: 'Limelight', cursive; */
+            /* font-family: 'Montserrat Subrayada', sans-serif; */
+            /* font-family: 'Slackey', cursive; */
+            /* font-family: 'Spicy Rice', cursive; */
+        
+        
+        
+                /* GLOBAL */
+        *,
+        *::before,
+        *::after {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        
+                /* ELEMENTS */
+        body {
+            background-image: url('../assets/nils-schirmer-V0_gHwsrCg4-unsplash.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            color: slateblue;
+            font-family: 'Fontdiner Swanky', cursive;
+            min-height: 100vh;
+        }
+        
+        #artist, #releaseLink, #releaseTitle, #thumbImg {
+            background-color: indigo;
+            text-align: center;
+        }
+        
+        header {
+            font-family: 'Barrio', cursive;
+            background-color:#004D4D;
+            text-shadow: 1px 0 10px #597874;
+            border-radius: 25%;
+        }
+        
+        header p {
+            display: flex;
+            justify-content: center;
+        }
+        
+        #appTitle {
+            border-top-left-radius: 45%;
+            border-top-right-radius: 2%;
+            border-bottom-right-radius: 25%;
+            text-align: center;
+            background-color: #400080;
+            color: #808000;
+            font-size: 65px;
+            text-shadow: 1px 0px 10px #4D4D00;
+            height: 125px;
+        }
+        
+        footer {
+            display: flex;
+            align-content: flex-end;
+            justify-content: center;
+            color: #008000;
+            height: 25px;
+            background-color: indigo;
+        }
+        
+        #userInputBox {
+            justify-content: flex-end;
+        }
+        
+        #rightSidebar {
+            display: flex;
+            position: relative;
+            flex-wrap: wrap;
+            background-color: indigo;
+            width: 200px;
+            height: 100vh;
+            text-shadow: 1px 0 10px #597874;
+        }
+        
+        #rightSidebar p {
+            font-family: 'Spicy Rice', cursive;
+        }
+        
+        #leftSidebar {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            background-color: indigo;
+            height: 100vh;
+            width: 200px;
+            text-shadow: 1px 0px 10px #597874;
+            margin-right: 0%;
+        }
+        
+        #userInputBox {
+            font-family: 'Spicy Rice', cursive;
+        }
+        
+        #getBandBtn {
+            color: #90282C; 
+        }
+        
+        #rssFeed {
+            width: 200px;
+            height: 250px;
+        }
