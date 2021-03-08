@@ -45,19 +45,40 @@
         src="./js/script.js">
     </script>
     <title>
-        Document
+        FanPool
     </title>
+        <!-- Favicon -->
+    <link 
+        rel = "icon" 
+        href = "./assets/music-solid.svg" 
+        type = "svg"
+    > 
 </head>
-<body>
-    <div class="container">
+<body> 
+
+    <aside id="leftSidebar">  <!-- I-FRAME LOOKS TERRIBLE, FIND A BETTER WAY -->
+        <h3>
+            RSS music news feed coming soon... 
+        </h3>
+        <iframe
+            id="rssFeed" 
+            src="//rss.bloople.net/?url=https%3A%2F%2Floudwire.com%2Ffeed%2F&detail=-1&limit=10&showicon=true&showempty=true&type=html">
+        </iframe>
+    </aside>
+
             <!-- APP TITLE/TECHNOLOGIES -->
+
+    <div class="container">
         <header>
             <h1 class="jumbotron" id="appTitle">FanPool</h1>
             <p>Dive in to your favorite artists</p>
         </header>
+
             <!-- USER INPUT/DATA/MAIN-CONTENT -->
+
         <main>
-                <!-- DISPLAYED DATA TABLE -->
+            <!-- DISPLAYED DATA TABLE -->
+
             <section id="dataDisplay">
                 <table class="table table-bordered table-hover" id="renderedData">
                     <colgroup><col><col><col></colgroup>
@@ -74,13 +95,17 @@
                     </tbody>
                 </table>
             </section>
+
                 <!-- PAGING BUTTONS -->
+
             <div id="pager">
                 <ul id="pagination" class="pagination-sm">
 
                 </ul>
             </div>
+
                 <!-- USER INPUT COLLECTION -->
+
             <section id="userInputBox">
                 <form>
                     <label>
@@ -92,10 +117,36 @@
             </section>
 
         </main>
+
             <!-- FINE PRINT -->
+
         <footer>
             Copyright &copy; All rights reserved 2021 FanPull 
         </footer>
+        
     </div>
+
+    <aside id='rightSidebar'>
+        <div id="welcomeText">
+            <h2>
+                Welcome to FanPool
+            </h2>
+            <p>
+                FanPool allows you to search for your favorite artist's releases from a regularly updated database of album releases.
+            </p>
+        </div>
+        <div id="comingSoonText">
+            <ul>
+                <li>MUSIC NEWS RSS FEED</li>
+                <li>MARKETPLACE AVAILABILITY</li>
+                <li>AVERAGE MARKETPLACE LISTING PRICE</li>
+                <li>SPREADSHEET EXPORT</li>
+                <li>USER LOGIN</li>
+
+            </ul>
+        </div>
+    </aside>
+
 </body>
+
 </html>

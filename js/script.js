@@ -1,36 +1,38 @@
 // *FILE LINK TEST*
     // alert('Reportin for duty');
+// THANKS TO jsTutorials Team FOR PAGINATION TUTORIAL : https://www.js-tutorials.com/jquery-tutorials/simple-example-pagination-using-jquery-bootstrap/
+
 
 // IIFE - Immediately Invoked Function Expression (protects global scope)
-    $(function() {
+$(function() {
 
 
 // *--- CONSTANTS ---*
 
-var $pagination = $('#pagination'),
-records = [], // total of records object array
-displayRecords = [], // object array that is pushed to HTML table
-recPerPage = 25, // Count of records displayed per page
-page = 1, // current page number
-totalPages = 0; // total pages made from fetched records
-const token = 'GmScquIpMgYfKWDslkeqkFtIcLJhzXHURtxForyC'; // API KEY
+    var $pagination = $('#pagination'),
+    records = [], // total of records object array
+    displayRecords = [], // object array that is pushed to HTML table
+    recPerPage = 25, // Count of records displayed per page
+    page = 1, // current page number
+    totalPages = 0; // total pages made from fetched records
+    const token = 'GmScquIpMgYfKWDslkeqkFtIcLJhzXHURtxForyC'; // API KEY
 
 // *--- APP'S STATE (VARIABLES) ---*
 
-let $input = $('input[type="text"]'), //user input field variable
-artistRlsData, // "artist release data" - data received from AJAX request
-userInput; //
+    let $input = $('input[type="text"]'), //user input field variable
+    artistRlsData, // "artist release data" - data received from AJAX request
+    userInput; //
 
 // *--- CACHED ELEMENT REFERENCES(HTML DOM) ---*
 
-const $artist = $('#artist');  // Artist name column DOM element
-const $thumbImg = $('#thumbImg');  // Album cover photo column DOM element
-const $releaseTitle = $('#releaseTitle');  // Album title column DOM element
-const $releaseLink = $('#releaseLink');  // Marketplace link column DOM element
+    const $artist = $('#artist');  // Artist name column DOM element
+    const $thumbImg = $('#thumbImg');  // Album cover photo column DOM element
+    const $releaseTitle = $('#releaseTitle');  // Album title column DOM element
+    const $releaseLink = $('#releaseLink');  // Marketplace link column DOM element
 
 // *--- EVENT LISTENERS ---*
 
-$('form').on('submit', handleGetData); // Listens for form submission
+    $('form').on('submit', handleGetData); // Listens for form submission
 
 // *--- FUNCTIONS ---*
 
@@ -77,7 +79,7 @@ $('form').on('submit', handleGetData); // Listens for form submission
             totalPages: 10, // Sets total number of available pages
             visiblePages: 5,  // Sets how many pages displayed at a time
             onPageClick: function(event, page) {  
-                artistRlsDataIndex = Math.max(page -1, 0) * recPerPage;  // 
+                artistRlsDataIndex = Math.max(page - 1, 0) * recPerPage;  // 
                 endRec = (artistRlsDataIndex) + recPerPage;
                 displayRecords = artistRlsData.results.slice(artistRlsDataIndex, endRec);  // Assigns 
                 console.log(artistRlsDataIndex);
