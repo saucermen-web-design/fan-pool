@@ -30,7 +30,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    color: whitesmoke;
+    color: slateblue;
     font-family: 'Fontdiner Swanky', cursive;
     min-height: 100vh;
 }
@@ -69,8 +69,8 @@ footer {
     align-content: flex-end;
     justify-content: center;
     color: #008000;
-    height: 50px;
-    background-color: 
+    height: 25px;
+    background-color: indigo;
 }
 
 #userInputBox {
@@ -81,7 +81,7 @@ footer {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    background-color: #800040;
+    background-color: indigo;
     width: 200px;
     height: 100vh;
     text-shadow: 1px 0 10px #597874;
@@ -95,7 +95,7 @@ footer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: #800040;
+    background-color: indigo;
     height: 100vh;
     width: 200px;
     text-shadow: 1px 0px 10px #597874;
