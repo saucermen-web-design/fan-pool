@@ -1,92 +1,91 @@
-// *FILE LINK TEST*
-    // alert('Reportin for duty');
-// THANKS TO jsTutorials Team FOR PAGINATION TUTORIAL : https://www.js-tutorials.com/jquery-tutorials/simple-example-pagination-using-jquery-bootstrap/
+// REQUIRED MODULES  
+const express = require("express");
+const app = express();
+const methodOverride = require("method-override");
+// const morgan = require('morgan');
+const session = require('express-session');
+const favicon = require('serve-favicon');
+const path = require('path');
+const MongoStore = require('connect-mongo');
+require('dotenv').config();
 
+// PROCCESS .ENV FILE
+const PORT = process.env.PORT || 3001;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-// IIFE - Immediately Invoked Function Expression (protects global scope)
-$(() => {
+// Load up mongoose
+const mongoose = require("mongoose");
+app.use(express.urlencoded({ extended: true }));
 
+app.use(methodOverride("_method"));
+app.use(express.static('public'));
+// app.use(morgan('dev'));
 
-    // *--- CONSTANTS ---*
-    
-        const $pagination = $('#pagination'),
-        records = [], // total of records object array
-        displayRecords = [], // object array that is pushed to HTML table
-        recPerPage = 25, // Count of records displayed per page
-        page = 1, // current page number
-        totalPages = 0; // total pages made from fetched records
-        const token = process.env.DISCOGS_TOKEN; // API KEY
-    
-    // *--- APP'S STATE (VARIABLES) ---*
-    
-        let $input = $('input[type="text"]'), //user input field variable
-        artistRlsData, // "artist release data" - data received from AJAX request
-        userInput; //
-    
-    // *--- CACHED ELEMENT REFERENCES(HTML DOM) ---*
-    
-        const $artist = $('#artist');  // Artist name column DOM element
-        const $thumbImg = $('#thumbImg');  // Album cover photo column DOM element
-        const $releaseTitle = $('#releaseTitle');  // Album title column DOM element
-        const $releaseLink = $('#releaseLink');  // Marketplace link column DOM element
-    
-    // *--- EVENT LISTENERS ---*
-    
-        $('form').on('submit', handleGetData); // Listens for form submission
-    
-    // *--- FUNCTIONS ---*
-    
-            // *--- TAKES USER INPUT, HANDLES CLICK, HANDLES PAGINATION OF RESULTS ---*
-        const handleGetData = (e) => {
-            e.preventDefault();  // prevents page refresh caused by form submission
-            userInput = $input.val(); // assigns input field value to userInput variable
-            $.ajax({
-                url:`https://api.discogs.com/database/search?q=${userInput}&token=${token}`
-            }) //AJAX request
-            .then(
-                (data) => {
-                artistRlsData = data; // Assigns received data to variable
-                // console.log(artistRlsData); 
-                // console.log(data);
-                // console.log(artistRlsData.pagination.items);
-                totalRecords = artistRlsData.pagination.length;  // Assigns number of results to variable
-                totalPages = Math.ceil(totalRecords / recPerPage);  // Divides number of results variable by number of items per page variable which is set statically.
-                apply_pagination(); // Runs function that paginates data
-                },
-                (error) => {
-                console.log('bad request: ', error);
-            });
-        };
-        
-            // *--- POPULATES TABLE WITH RESULTS ---*
-        const generateTable = () => {
-            let tr;  // Defines table tow variable
-            $('#renderedDataBody').html(''); // sets content of table body
-            for(let i = 0; i < displayRecords.length; i++){  // loops through data and appends to table
-                console.log(displayRecords.length);
-                tr = $('<tr/>');
-                tr.append(`<td>${displayRecords[i].id}</td>`)
-                tr.append(`<td>${displayRecords[i].title}</td>`)
-                tr.append(`<td>${displayRecords[i].title}</td>`)
-                tr.append(`<td>${displayRecords[i].uri}</td>`)
-                $('#renderedDataBody').append(tr);
-            }
-        };
-    
-            // *--- SETS PAGINATION PARAMETERS AND PASSES THEM TO PLUG-IN ---*
-        const apply_pagination = () => {
-            $pagination.twbsPagination({ // Calls plugin
-                totalPages: 10, // Sets total number of available pages
-                visiblePages: 5,  // Sets how many pages displayed at a time
-                onPageClick: function(event, page) {  
-                    artistRlsDataIndex = Math.max(page - 1, 0) * recPerPage;  // 
-                    endRec = (artistRlsDataIndex) + recPerPage;
-                    displayRecords = artistRlsData.results.slice(artistRlsDataIndex, endRec);  // Assigns 
-                    console.log(artistRlsDataIndex);
-                    generateTable();
-                }
-            })
-        };
-    
-    });
-    
+// Middleware
+app.use((req, res, next) => {
+  // console.log("my own middleware");
+  next();
+});
+
+app.use(favicon(path.join(__dirname,'public','images','music-solid.svg')));
+
+app.use(function(req, res, next) {
+  req.date = new Date().toLocaleDateString();
+  req.time = new Date().toLocaleTimeString();
+  next();
+});
+
+app.use(session({
+  cookie:{
+      secure: true,
+      maxAge:60000
+         },
+  store: MongoStore.create({ mongoUrl: MONGODB_URI }), 
+  secret: 'supersecret',
+  saveUninitialized: true,
+  resave: false
+  }));
+
+// Connect mongoose to mongo db:
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+mongoose.connection.once("open", () => {
+  // console.log("connected to mongo");
+});
+
+// CONTROLLERS
+const itemsController = require("./controllers/items");
+app.use("/items", itemsController);
+
+const usersController = require("./controllers/users");
+app.use("/users", usersController);
+
+// SET VIEW ENGINE 
+app.set('view engine', 'ejs');
+
+// ROUTING
+app.get("/", (req, res) => {
+  res.redirect("users/login");
+});
+
+// wildcard route
+app.get("*", (req, res) => {
+    res.redirect("/");
+});
+
+// HOW MANY TIMES VISITIED
+app.get('/times-visited', function(req, res) {
+  if(req.session.visits) {
+      req.session.visits++;
+  } else {
+      req.session.visits = 1;
+  };
+  res.send(`<h1>You've visited this page ${req.session.visits} time(s) </h1>`);
+});
+
+// Web server:
+app.listen(PORT, () => {
+  // console.log("listening");
+});
