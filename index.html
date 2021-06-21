@@ -25,7 +25,7 @@
         <!-- LOCAL CSS FILE -->
     <link
         rel="stylesheet"
-        href="./css/style.css"
+        href="./public/css/style.css"
     />
         <!-- jQUERY CDN -->
     <script 
@@ -52,7 +52,7 @@
         rel = "icon" 
         href = "./assets/music-solid.svg" 
         type = "svg"
-    > 
+    /> 
 </head>
 <body> 
 
@@ -60,12 +60,8 @@
 
     <aside id="leftSidebar">
         <h3>
-            RSS music news feed from Loudwire.
+            Music news feed coming.
         </h3>
-        <iframe
-            id="rssFeed" 
-            src="//rss.bloople.net/?url=https%3A%2F%2Floudwire.com%2Ffeed%2F&detail=-1&limit=10&showicon=true&showempty=true&type=html">
-        </iframe>
     </aside>
 
             <!-- APP TITLE/TECHNOLOGIES -->
@@ -114,7 +110,7 @@
                         Enter Band/Artist:
                         <input type="text" class="inputs" id="bandInp" placeholder="e.g. Bob Segar"/>
                     </label>
-                    <button type="submit" value="submit" class="btn btn-primary inputs" id="getBandBtn">Get Band/Artist</button>
+                    <button type="submit" value="submit" class="btn btn-primary" id="getBandBtn">Get Band/Artist</button>
                 </form>
             </section>
 

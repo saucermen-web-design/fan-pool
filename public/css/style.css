@@ -1,0 +1,144 @@
+        /* IMPORTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Cherry+Cream+Soda&family=Fontdiner+Swanky&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Slackey&family=Spicy+Rice&display=swap');
+        
+                /* FONT FAMILY RULES */
+            /* font-family: 'Barrio', cursive; */
+            /* font-family: 'Cherry Cream Soda', cursive; */
+            /* font-family: 'Fontdiner Swanky', cursive; */
+            /* font-family: 'Limelight', cursive; */
+            /* font-family: 'Montserrat Subrayada', sans-serif; */
+            /* font-family: 'Slackey', cursive; */
+            /* font-family: 'Spicy Rice', cursive; */
+               
+        /* GLOBAL */
+:root{
+    --primary-background-color: #282828;
+    --secondary-background-color: #2D283E;
+    --primary-purple: #0C0032;
+    --secondary-purple: #1A0061;
+    --tertiary-purple: #230090;
+    --quaternary-purple: #3500D4;
+    --quinary-purple: #812BB2;
+    --app-name-color: #149F98;
+    --dark-text-color: #564F70;
+    --light-text-color: #D0D7E1;
+    --grey-poupon: #4C495C;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    max-height: 100%;
+    max-width: 100%;
+}
+        
+        /* ELEMENTS */
+body {
+    background-color: var(--primary-background-color);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    color: var(--light-text-color);
+    font-family: 'Fontdiner Swanky', cursive;
+}
+        
+#artist, #releaseLink, #releaseTitle, #thumbImg {
+    background-color: var(--tertiary-purple);
+    text-align: center;
+    color: var(--dark-text-color);
+}
+        
+header {
+    font-family: 'Fontdiner Swanky', cursive;
+    background-color: var(--secondary-purple);
+    text-shadow: 1px 0 10px #597874;
+    border-radius: 25%;
+    margin-top: 0;
+    width: 100vw;
+    margin-left: 0;
+}
+        
+header p {
+    display: flex;
+    justify-content: center;
+}
+        
+#appTitle {
+    border-top-left-radius: 45%;
+    border-top-right-radius: 2%;
+    border-bottom-right-radius: 25%;
+    text-align: center;
+    background-color: var(--primary-purple);
+    color: var(--app-name-color);
+    font-size: 65px;
+    text-shadow: 1px 0px 10px #4D4D00;
+    height: 125px;
+    margin-top: 0%;
+    width: 100vw;
+}
+        
+footer {
+    display: flex;
+    align-content: flex-end;
+    justify-content: center;
+    height: 25px;
+    width: 100%;
+    background-color: var(--secondary-purple);
+}
+        
+/* #userInputBox {
+    justify-content: flex-end;
+} */  /* Not sure this is needed*/
+        
+#rightSidebar {
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    background-color: var(--secondary-purple);
+    width: 200px;
+    height: 100vh;
+    text-shadow: 1px 0 10px #597874;
+}
+        
+#rightSidebar p,
+#leftSidebar p {
+    font-family: 'Spicy Rice', cursive;
+}
+
+footer,
+#rightSidebar,
+#leftSidebar {
+    color: var(--dark-text-color);
+}
+        
+#leftSidebar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: var(--secondary-purple);
+    height: 100vh;
+    width: 200px;
+    text-shadow: 1px 0px 10px #597874;
+    margin-right: 0%;
+}
+        
+#userInputBox {
+    font-family: 'Barrio', cursive;
+}
+        
+#getBandBtn {
+    background-color: var(--quaternary-purple); 
+    color: var(--light-text-color);
+}
+
+#getBandBtn:hover {
+    background-color: var(--app-name-color);
+    color: var(--secondary-background-color);
+}
+        
