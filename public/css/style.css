@@ -40,14 +40,11 @@
         /* ELEMENTS */
 body {
     background-color: var(--primary-background-color);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
     color: var(--light-text-color);
     font-family: 'Fontdiner Swanky', cursive;
+    margin: 0;
 }
-        
+
 #artist, #releaseLink, #releaseTitle, #thumbImg {
     background-color: var(--tertiary-purple);
     color: var(--dark-text-color);
@@ -57,7 +54,7 @@ header {
     font-family: 'Fontdiner Swanky', cursive;
     background-color: var(--secondary-purple);
     text-shadow: 1px 0 10px #597874;
-    border-radius: 25%;
+    /* border-radius: 25%; */
     margin-top: 0;
 }
 
@@ -70,17 +67,13 @@ header p {
 }
         
 #appTitle {
-    border-top-left-radius: 45%;
-    border-top-right-radius: 2%;
-    border-bottom-right-radius: 25%;
+    border-radius: 45% 20% 25% 35%;
     text-align: center;
     background-color: var(--primary-purple);
     color: var(--app-name-color);
     font-size: 65px;
     text-shadow: 1px 0px 10px #4D4D00;
-    height: 125px;
     margin-top: 0%;
-    width: 100vw;
 }
         
 footer {
@@ -97,29 +90,36 @@ footer {
     justify-content: flex-end;
 } */  /* Not sure this is needed*/
         
-#rightSidebar,
-#leftSidebar {
+.rightSidebar,
+.leftSidebar {
     background-color: var(--secondary-purple);
     text-shadow: 1px 0 10px #597874;
-}
-        
-#rightSidebar p,
-#leftSidebar p {
     font-family: 'Spicy Rice', cursive;
+    color: var(--app-name-color);
 }
 
-footer,
-#rightSidebar,
-#leftSidebar {
+footer {
     color: var(--dark-text-color);
 }
-        
-#leftSidebar {
 
+.rightSidebar {
+    width: 12%;
+    order: 3;
+    height: 100%;
+    margin-top: 0;
 }
         
-#userInputBox {
-    font-family: 'Barrio', cursive;
+.leftSidebar {
+    width: 12%;
+    order: 1;
+    height: 100%;
+    margin-top: 0;
+}
+        
+.userSrchInpt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
         
 #getBandBtn {
@@ -131,4 +131,24 @@ footer,
     background-color: var(--app-name-color);
     color: var(--secondary-background-color);
 }
-        
+
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+.content {
+    display: flex;
+    flex: 1;
+}
+
+.columns{
+    display: flex;
+    flex:1;
+}        
+
+.main{
+    flex: 1;
+    order: 2;
+}
