@@ -1,0 +1,19 @@
+{
+  "name": "fan-pool",
+  "version": "0.0.1",
+  "description": "Browse your favorite artist and build your digital catalog",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Coty McKinney",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "react": "^18.2.0"
+  }
+}
